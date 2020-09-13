@@ -1,0 +1,750 @@
+(base) karthik.arunapuram@C02CFACJMD6R rlt_terraform_k8s_test-master-master % gcloud init
+Welcome! This command will take you through the configuration of gcloud.
+
+Settings from your current configuration [default] are:
+core:
+  account: kartikarunapuram@gmail.com
+  disable_usage_reporting: 'True'
+  project: rlt-test
+
+Pick configuration to use:
+ [1] Re-initialize this configuration [default] with new settings 
+ [2] Create a new configuration
+Please enter your numeric choice:  q
+Please enter a value between 1 and 2:  1
+
+Your current configuration has been set to: [default]
+
+You can skip diagnostics next time by using the following flag:
+  gcloud init --skip-diagnostics
+
+Network diagnostic detects and fixes local network connection issues.
+Checking network connection...done.                                            
+Reachability Check passed.
+Network diagnostic passed (1/1 checks passed).
+
+Choose the account you would like to use to perform operations for 
+this configuration:
+ [1] kartikarunapuram@gmail.com
+ [2] Log in with a new account
+Please enter your numeric choice:  1
+
+You are logged in as: [kartikarunapuram@gmail.com].
+
+Pick cloud project to use: 
+ [1] hazel-airlock-289204
+ [2] kartikarunapuram-test
+ [3] rlt-test-289320
+ [4] Create a new project
+Please enter numeric choice or text value (must exactly match list 
+item):  3
+
+Your current project has been set to: [rlt-test-289320].
+
+Do you want to configure a default Compute Region and Zone? (Y/n)?  Y
+
+Which Google Compute Engine zone would you like to use as project 
+default?
+If you do not specify a zone via a command line flag while working 
+with Compute Engine resources, the default is assumed.
+ [1] us-east1-b
+ [2] us-east1-c
+ [3] us-east1-d
+ [4] us-east4-c
+ [5] us-east4-b
+ [6] us-east4-a
+ [7] us-central1-c
+ [8] us-central1-a
+ [9] us-central1-f
+ [10] us-central1-b
+ [11] us-west1-b
+ [12] us-west1-c
+ [13] us-west1-a
+ [14] europe-west4-a
+ [15] europe-west4-b
+ [16] europe-west4-c
+ [17] europe-west1-b
+ [18] europe-west1-d
+ [19] europe-west1-c
+ [20] europe-west3-c
+ [21] europe-west3-a
+ [22] europe-west3-b
+ [23] europe-west2-c
+ [24] europe-west2-b
+ [25] europe-west2-a
+ [26] asia-east1-b
+ [27] asia-east1-a
+ [28] asia-east1-c
+ [29] asia-southeast1-b
+ [30] asia-southeast1-a
+ [31] asia-southeast1-c
+ [32] asia-northeast1-b
+ [33] asia-northeast1-c
+ [34] asia-northeast1-a
+ [35] asia-south1-c
+ [36] asia-south1-b
+ [37] asia-south1-a
+ [38] australia-southeast1-b
+ [39] australia-southeast1-c
+ [40] australia-southeast1-a
+ [41] southamerica-east1-b
+ [42] southamerica-east1-c
+ [43] southamerica-east1-a
+ [44] asia-east2-a
+ [45] asia-east2-b
+ [46] asia-east2-c
+ [47] asia-northeast2-a
+ [48] asia-northeast2-b
+ [49] asia-northeast2-c
+ [50] asia-northeast3-a
+Did not print [24] options.
+Too many options [74]. Enter "list" at prompt to print choices fully.
+Please enter numeric choice or text value (must exactly match list 
+item):  8
+
+Your project default Compute Engine zone has been set to [us-central1-a].
+You can change it by running [gcloud config set compute/zone NAME].
+
+Your project default Compute Engine region has been set to [us-central1].
+You can change it by running [gcloud config set compute/region NAME].
+
+Your Google Cloud SDK is configured and ready to use!
+
+* Commands that require authentication will use kartikarunapuram@gmail.com by default
+* Commands will reference project `rlt-test-289320` by default
+* Compute Engine commands will use region `us-central1` by default
+* Compute Engine commands will use zone `us-central1-a` by default
+
+Run `gcloud help config` to learn how to change individual settings
+
+This gcloud configuration is called [default]. You can create additional configurations if you work with multiple accounts and/or projects.
+Run `gcloud topic configurations` to learn more.
+
+Some things to try next:
+
+* Run `gcloud --help` to see the Cloud Platform services you can interact with. And run `gcloud help COMMAND` to get help on any gcloud command.
+* Run `gcloud topic --help` to learn about advanced features of the SDK like arg files and output formatting
+(base) karthik.arunapuram@C02CFACJMD6R rlt_terraform_k8s_test-master-master % terraform init 
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Using previously-installed hashicorp/google v3.38.0
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, we recommend adding version constraints in a required_providers block
+in your configuration, with the constraint strings suggested below.
+
+* hashicorp/google: version = "~> 3.38.0"
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+(base) karthik.arunapuram@C02CFACJMD6R rlt_terraform_k8s_test-master-master % terraform plan 
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_container_cluster.primary will be created
+  + resource "google_container_cluster" "primary" {
+      + additional_zones            = (known after apply)
+      + cluster_ipv4_cidr           = (known after apply)
+      + default_max_pods_per_node   = (known after apply)
+      + enable_binary_authorization = false
+      + enable_intranode_visibility = (known after apply)
+      + enable_kubernetes_alpha     = false
+      + enable_legacy_abac          = false
+      + enable_shielded_nodes       = false
+      + enable_tpu                  = (known after apply)
+      + endpoint                    = (known after apply)
+      + id                          = (known after apply)
+      + initial_node_count          = 1
+      + instance_group_urls         = (known after apply)
+      + label_fingerprint           = (known after apply)
+      + location                    = "us-central1"
+      + logging_service             = (known after apply)
+      + master_version              = (known after apply)
+      + monitoring_service          = (known after apply)
+      + name                        = "rlt-test-289320-gke-cluster"
+      + network                     = "default"
+      + node_locations              = (known after apply)
+      + node_version                = (known after apply)
+      + operation                   = (known after apply)
+      + project                     = (known after apply)
+      + region                      = (known after apply)
+      + remove_default_node_pool    = true
+      + services_ipv4_cidr          = (known after apply)
+      + subnetwork                  = (known after apply)
+      + zone                        = (known after apply)
+
+      + addons_config {
+          + cloudrun_config {
+              + disabled = (known after apply)
+            }
+
+          + horizontal_pod_autoscaling {
+              + disabled = (known after apply)
+            }
+
+          + http_load_balancing {
+              + disabled = (known after apply)
+            }
+
+          + kubernetes_dashboard {
+              + disabled = (known after apply)
+            }
+
+          + network_policy_config {
+              + disabled = (known after apply)
+            }
+        }
+
+      + authenticator_groups_config {
+          + security_group = (known after apply)
+        }
+
+      + cluster_autoscaling {
+          + enabled = (known after apply)
+
+          + auto_provisioning_defaults {
+              + oauth_scopes    = (known after apply)
+              + service_account = (known after apply)
+            }
+
+          + resource_limits {
+              + maximum       = (known after apply)
+              + minimum       = (known after apply)
+              + resource_type = (known after apply)
+            }
+        }
+
+      + database_encryption {
+          + key_name = (known after apply)
+          + state    = (known after apply)
+        }
+
+      + master_auth {
+          + client_certificate     = (known after apply)
+          + client_key             = (sensitive value)
+          + cluster_ca_certificate = (known after apply)
+
+          + client_certificate_config {
+              + issue_client_certificate = false
+            }
+        }
+
+      + network_policy {
+          + enabled  = (known after apply)
+          + provider = (known after apply)
+        }
+
+      + node_config {
+          + disk_size_gb      = (known after apply)
+          + disk_type         = (known after apply)
+          + guest_accelerator = (known after apply)
+          + image_type        = (known after apply)
+          + labels            = (known after apply)
+          + local_ssd_count   = (known after apply)
+          + machine_type      = (known after apply)
+          + metadata          = (known after apply)
+          + min_cpu_platform  = (known after apply)
+          + oauth_scopes      = (known after apply)
+          + preemptible       = (known after apply)
+          + service_account   = (known after apply)
+          + tags              = (known after apply)
+          + taint             = (known after apply)
+
+          + sandbox_config {
+              + sandbox_type = (known after apply)
+            }
+
+          + shielded_instance_config {
+              + enable_integrity_monitoring = (known after apply)
+              + enable_secure_boot          = (known after apply)
+            }
+
+          + workload_metadata_config {
+              + node_metadata = (known after apply)
+            }
+        }
+
+      + node_pool {
+          + initial_node_count  = (known after apply)
+          + instance_group_urls = (known after apply)
+          + max_pods_per_node   = (known after apply)
+          + name                = (known after apply)
+          + name_prefix         = (known after apply)
+          + node_count          = (known after apply)
+          + node_locations      = (known after apply)
+          + version             = (known after apply)
+
+          + autoscaling {
+              + max_node_count = (known after apply)
+              + min_node_count = (known after apply)
+            }
+
+          + management {
+              + auto_repair  = (known after apply)
+              + auto_upgrade = (known after apply)
+            }
+
+          + node_config {
+              + disk_size_gb      = (known after apply)
+              + disk_type         = (known after apply)
+              + guest_accelerator = (known after apply)
+              + image_type        = (known after apply)
+              + labels            = (known after apply)
+              + local_ssd_count   = (known after apply)
+              + machine_type      = (known after apply)
+              + metadata          = (known after apply)
+              + min_cpu_platform  = (known after apply)
+              + oauth_scopes      = (known after apply)
+              + preemptible       = (known after apply)
+              + service_account   = (known after apply)
+              + tags              = (known after apply)
+              + taint             = (known after apply)
+
+              + sandbox_config {
+                  + sandbox_type = (known after apply)
+                }
+
+              + shielded_instance_config {
+                  + enable_integrity_monitoring = (known after apply)
+                  + enable_secure_boot          = (known after apply)
+                }
+
+              + workload_metadata_config {
+                  + node_metadata = (known after apply)
+                }
+            }
+
+          + upgrade_settings {
+              + max_surge       = (known after apply)
+              + max_unavailable = (known after apply)
+            }
+        }
+
+      + pod_security_policy_config {
+          + enabled = (known after apply)
+        }
+
+      + release_channel {
+          + channel = (known after apply)
+        }
+    }
+
+  # google_container_node_pool.primary_preemptible_nodes will be created
+  + resource "google_container_node_pool" "primary_preemptible_nodes" {
+      + cluster             = "rlt-test-289320-gke-cluster"
+      + id                  = (known after apply)
+      + initial_node_count  = (known after apply)
+      + instance_group_urls = (known after apply)
+      + location            = "us-central1"
+      + max_pods_per_node   = (known after apply)
+      + name                = "rlt-test-289320-node-pool"
+      + name_prefix         = (known after apply)
+      + node_count          = 1
+      + node_locations      = (known after apply)
+      + project             = (known after apply)
+      + region              = (known after apply)
+      + version             = (known after apply)
+      + zone                = (known after apply)
+
+      + management {
+          + auto_repair  = (known after apply)
+          + auto_upgrade = (known after apply)
+        }
+
+      + node_config {
+          + disk_size_gb      = (known after apply)
+          + disk_type         = (known after apply)
+          + guest_accelerator = (known after apply)
+          + image_type        = (known after apply)
+          + labels            = (known after apply)
+          + local_ssd_count   = (known after apply)
+          + machine_type      = "e2-medium"
+          + metadata          = {
+              + "disable-legacy-endpoints" = "true"
+            }
+          + oauth_scopes      = [
+              + "https://www.googleapis.com/auth/logging.write",
+              + "https://www.googleapis.com/auth/monitoring",
+            ]
+          + preemptible       = true
+          + service_account   = (known after apply)
+          + taint             = (known after apply)
+
+          + sandbox_config {
+              + sandbox_type = (known after apply)
+            }
+
+          + shielded_instance_config {
+              + enable_integrity_monitoring = (known after apply)
+              + enable_secure_boot          = (known after apply)
+            }
+
+          + workload_metadata_config {
+              + node_metadata = (known after apply)
+            }
+        }
+
+      + upgrade_settings {
+          + max_surge       = (known after apply)
+          + max_unavailable = (known after apply)
+        }
+    }
+
+  # google_container_registry.registry will be created
+  + resource "google_container_registry" "registry" {
+      + bucket_self_link = (known after apply)
+      + id               = (known after apply)
+      + location         = "US"
+      + project          = "rlt-test-289320"
+    }
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
+------------------------------------------------------------------------
+
+Note: You didn't specify an "-out" parameter to save this plan, so Terraform
+can't guarantee that exactly these actions will be performed if
+"terraform apply" is subsequently run.
+
+(base) karthik.arunapuram@C02CFACJMD6R rlt_terraform_k8s_test-master-master % terraform apply
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_container_cluster.primary will be created
+  + resource "google_container_cluster" "primary" {
+      + additional_zones            = (known after apply)
+      + cluster_ipv4_cidr           = (known after apply)
+      + default_max_pods_per_node   = (known after apply)
+      + enable_binary_authorization = false
+      + enable_intranode_visibility = (known after apply)
+      + enable_kubernetes_alpha     = false
+      + enable_legacy_abac          = false
+      + enable_shielded_nodes       = false
+      + enable_tpu                  = (known after apply)
+      + endpoint                    = (known after apply)
+      + id                          = (known after apply)
+      + initial_node_count          = 1
+      + instance_group_urls         = (known after apply)
+      + label_fingerprint           = (known after apply)
+      + location                    = "us-central1"
+      + logging_service             = (known after apply)
+      + master_version              = (known after apply)
+      + monitoring_service          = (known after apply)
+      + name                        = "rlt-test-289320-gke-cluster"
+      + network                     = "default"
+      + node_locations              = (known after apply)
+      + node_version                = (known after apply)
+      + operation                   = (known after apply)
+      + project                     = (known after apply)
+      + region                      = (known after apply)
+      + remove_default_node_pool    = true
+      + services_ipv4_cidr          = (known after apply)
+      + subnetwork                  = (known after apply)
+      + zone                        = (known after apply)
+
+      + addons_config {
+          + cloudrun_config {
+              + disabled = (known after apply)
+            }
+
+          + horizontal_pod_autoscaling {
+              + disabled = (known after apply)
+            }
+
+          + http_load_balancing {
+              + disabled = (known after apply)
+            }
+
+          + kubernetes_dashboard {
+              + disabled = (known after apply)
+            }
+
+          + network_policy_config {
+              + disabled = (known after apply)
+            }
+        }
+
+      + authenticator_groups_config {
+          + security_group = (known after apply)
+        }
+
+      + cluster_autoscaling {
+          + enabled = (known after apply)
+
+          + auto_provisioning_defaults {
+              + oauth_scopes    = (known after apply)
+              + service_account = (known after apply)
+            }
+
+          + resource_limits {
+              + maximum       = (known after apply)
+              + minimum       = (known after apply)
+              + resource_type = (known after apply)
+            }
+        }
+
+      + database_encryption {
+          + key_name = (known after apply)
+          + state    = (known after apply)
+        }
+
+      + master_auth {
+          + client_certificate     = (known after apply)
+          + client_key             = (sensitive value)
+          + cluster_ca_certificate = (known after apply)
+
+          + client_certificate_config {
+              + issue_client_certificate = false
+            }
+        }
+
+      + network_policy {
+          + enabled  = (known after apply)
+          + provider = (known after apply)
+        }
+
+      + node_config {
+          + disk_size_gb      = (known after apply)
+          + disk_type         = (known after apply)
+          + guest_accelerator = (known after apply)
+          + image_type        = (known after apply)
+          + labels            = (known after apply)
+          + local_ssd_count   = (known after apply)
+          + machine_type      = (known after apply)
+          + metadata          = (known after apply)
+          + min_cpu_platform  = (known after apply)
+          + oauth_scopes      = (known after apply)
+          + preemptible       = (known after apply)
+          + service_account   = (known after apply)
+          + tags              = (known after apply)
+          + taint             = (known after apply)
+
+          + sandbox_config {
+              + sandbox_type = (known after apply)
+            }
+
+          + shielded_instance_config {
+              + enable_integrity_monitoring = (known after apply)
+              + enable_secure_boot          = (known after apply)
+            }
+
+          + workload_metadata_config {
+              + node_metadata = (known after apply)
+            }
+        }
+
+      + node_pool {
+          + initial_node_count  = (known after apply)
+          + instance_group_urls = (known after apply)
+          + max_pods_per_node   = (known after apply)
+          + name                = (known after apply)
+          + name_prefix         = (known after apply)
+          + node_count          = (known after apply)
+          + node_locations      = (known after apply)
+          + version             = (known after apply)
+
+          + autoscaling {
+              + max_node_count = (known after apply)
+              + min_node_count = (known after apply)
+            }
+
+          + management {
+              + auto_repair  = (known after apply)
+              + auto_upgrade = (known after apply)
+            }
+
+          + node_config {
+              + disk_size_gb      = (known after apply)
+              + disk_type         = (known after apply)
+              + guest_accelerator = (known after apply)
+              + image_type        = (known after apply)
+              + labels            = (known after apply)
+              + local_ssd_count   = (known after apply)
+              + machine_type      = (known after apply)
+              + metadata          = (known after apply)
+              + min_cpu_platform  = (known after apply)
+              + oauth_scopes      = (known after apply)
+              + preemptible       = (known after apply)
+              + service_account   = (known after apply)
+              + tags              = (known after apply)
+              + taint             = (known after apply)
+
+              + sandbox_config {
+                  + sandbox_type = (known after apply)
+                }
+
+              + shielded_instance_config {
+                  + enable_integrity_monitoring = (known after apply)
+                  + enable_secure_boot          = (known after apply)
+                }
+
+              + workload_metadata_config {
+                  + node_metadata = (known after apply)
+                }
+            }
+
+          + upgrade_settings {
+              + max_surge       = (known after apply)
+              + max_unavailable = (known after apply)
+            }
+        }
+
+      + pod_security_policy_config {
+          + enabled = (known after apply)
+        }
+
+      + release_channel {
+          + channel = (known after apply)
+        }
+    }
+
+  # google_container_node_pool.primary_preemptible_nodes will be created
+  + resource "google_container_node_pool" "primary_preemptible_nodes" {
+      + cluster             = "rlt-test-289320-gke-cluster"
+      + id                  = (known after apply)
+      + initial_node_count  = (known after apply)
+      + instance_group_urls = (known after apply)
+      + location            = "us-central1"
+      + max_pods_per_node   = (known after apply)
+      + name                = "rlt-test-289320-node-pool"
+      + name_prefix         = (known after apply)
+      + node_count          = 1
+      + node_locations      = (known after apply)
+      + project             = (known after apply)
+      + region              = (known after apply)
+      + version             = (known after apply)
+      + zone                = (known after apply)
+
+      + management {
+          + auto_repair  = (known after apply)
+          + auto_upgrade = (known after apply)
+        }
+
+      + node_config {
+          + disk_size_gb      = (known after apply)
+          + disk_type         = (known after apply)
+          + guest_accelerator = (known after apply)
+          + image_type        = (known after apply)
+          + labels            = (known after apply)
+          + local_ssd_count   = (known after apply)
+          + machine_type      = "e2-medium"
+          + metadata          = {
+              + "disable-legacy-endpoints" = "true"
+            }
+          + oauth_scopes      = [
+              + "https://www.googleapis.com/auth/logging.write",
+              + "https://www.googleapis.com/auth/monitoring",
+            ]
+          + preemptible       = true
+          + service_account   = (known after apply)
+          + taint             = (known after apply)
+
+          + sandbox_config {
+              + sandbox_type = (known after apply)
+            }
+
+          + shielded_instance_config {
+              + enable_integrity_monitoring = (known after apply)
+              + enable_secure_boot          = (known after apply)
+            }
+
+          + workload_metadata_config {
+              + node_metadata = (known after apply)
+            }
+        }
+
+      + upgrade_settings {
+          + max_surge       = (known after apply)
+          + max_unavailable = (known after apply)
+        }
+    }
+
+  # google_container_registry.registry will be created
+  + resource "google_container_registry" "registry" {
+      + bucket_self_link = (known after apply)
+      + id               = (known after apply)
+      + location         = "US"
+      + project          = "rlt-test-289320"
+    }
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+google_container_registry.registry: Creating...
+google_container_cluster.primary: Creating...
+google_container_registry.registry: Creation complete after 1s [id=us.artifacts.rlt-test-289320.appspot.com]
+google_container_cluster.primary: Still creating... [10s elapsed]
+google_container_cluster.primary: Still creating... [20s elapsed]
+google_container_cluster.primary: Still creating... [30s elapsed]
+google_container_cluster.primary: Still creating... [40s elapsed]
+google_container_cluster.primary: Still creating... [50s elapsed]
+google_container_cluster.primary: Still creating... [1m0s elapsed]
+google_container_cluster.primary: Still creating... [1m10s elapsed]
+google_container_cluster.primary: Still creating... [1m20s elapsed]
+google_container_cluster.primary: Still creating... [1m30s elapsed]
+google_container_cluster.primary: Still creating... [1m40s elapsed]
+google_container_cluster.primary: Still creating... [1m50s elapsed]
+google_container_cluster.primary: Still creating... [2m0s elapsed]
+google_container_cluster.primary: Still creating... [2m10s elapsed]
+google_container_cluster.primary: Still creating... [2m20s elapsed]
+google_container_cluster.primary: Still creating... [2m30s elapsed]
+google_container_cluster.primary: Still creating... [2m40s elapsed]
+google_container_cluster.primary: Still creating... [2m50s elapsed]
+google_container_cluster.primary: Still creating... [3m0s elapsed]
+google_container_cluster.primary: Still creating... [3m10s elapsed]
+google_container_cluster.primary: Still creating... [3m20s elapsed]
+google_container_cluster.primary: Still creating... [3m30s elapsed]
+google_container_cluster.primary: Still creating... [3m40s elapsed]
+google_container_cluster.primary: Still creating... [3m50s elapsed]
+google_container_cluster.primary: Still creating... [4m0s elapsed]
+google_container_cluster.primary: Still creating... [4m10s elapsed]
+google_container_cluster.primary: Still creating... [4m20s elapsed]
+google_container_cluster.primary: Still creating... [4m30s elapsed]
+google_container_cluster.primary: Still creating... [4m40s elapsed]
+google_container_cluster.primary: Still creating... [4m50s elapsed]
+google_container_cluster.primary: Still creating... [5m0s elapsed]
+google_container_cluster.primary: Still creating... [5m10s elapsed]
+google_container_cluster.primary: Still creating... [5m20s elapsed]
+google_container_cluster.primary: Still creating... [5m30s elapsed]
+google_container_cluster.primary: Creation complete after 5m32s [id=projects/rlt-test-289320/locations/us-central1/clusters/rlt-test-289320-gke-cluster]
+google_container_node_pool.primary_preemptible_nodes: Creating...
+google_container_node_pool.primary_preemptible_nodes: Still creating... [10s elapsed]
+google_container_node_pool.primary_preemptible_nodes: Still creating... [20s elapsed]
+google_container_node_pool.primary_preemptible_nodes: Still creating... [30s elapsed]
+google_container_node_pool.primary_preemptible_nodes: Still creating... [40s elapsed]
+google_container_node_pool.primary_preemptible_nodes: Still creating... [50s elapsed]
+google_container_node_pool.primary_preemptible_nodes: Still creating... [1m0s elapsed]
+google_container_node_pool.primary_preemptible_nodes: Creation complete after 1m4s [id=projects/rlt-test-289320/locations/us-central1/clusters/rlt-test-289320-gke-cluster/nodePools/rlt-test-289320-node-pool]
+
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.

@@ -1,0 +1,4 @@
+(base) karthik.arunapuram@C02CFACJMD6R rlt_terraform_k8s_test-master-master % kubectl get service rlt-test
+NAME       TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)        AGE
+rlt-test   LoadBalancer   10.3.246.112   104.198.129.185   80:30231/TCP   95s
+(base) karthik.arunapuram@C02CFACJMD6R rlt_terraform_k8s_test-master-master % 

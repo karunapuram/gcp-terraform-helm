@@ -1,0 +1,9 @@
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % kubectl cluster-info
+Kubernetes master is running at https://34.67.56.149
+GLBCDefaultBackend is running at https://34.67.56.149/api/v1/namespaces/kube-system/services/default-http-backend:http/proxy
+Heapster is running at https://34.67.56.149/api/v1/namespaces/kube-system/services/heapster/proxy
+KubeDNS is running at https://34.67.56.149/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server is running at https://34.67.56.149/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % 

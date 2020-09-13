@@ -1,0 +1,73 @@
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % docker tag abbe5aec790c us.gcr.io/rlt-test-289320/rlt-test
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % docker images
+REPOSITORY                                                         TAG                 IMAGE ID            CREATED             SIZE
+us.gcr.io/rlt-test-289320/rlt-test                                 latest              abbe5aec790c        33 minutes ago      414MB
+850575566567.dkr.ecr.us-east-1.amazonaws.com/finemap/run-finemap   latest              1f636eab2c33        2 weeks ago         294MB
+<none>                                                             <none>              844f517a3eb5        2 weeks ago         280MB
+<none>                                                             <none>              0c07e2feb6ab        2 weeks ago         1.11GB
+<none>                                                             <none>              7ed85d280c24        2 weeks ago         842MB
+docker101tutorial                                                  latest              00812108287e        3 weeks ago         27.3MB
+<none>                                                             <none>              c287a92c0974        3 weeks ago         85.6MB
+<none>                                                             <none>              a7fe94fba070        3 weeks ago         72MB
+<none>                                                             <none>              deede08ead05        3 weeks ago         224MB
+nginx                                                              alpine              6f715d38cfe0        4 weeks ago         22.1MB
+golang                                                             1-alpine            1a87ceb1ace5        4 weeks ago         402MB
+golang                                                             1-alpine3.12        1a87ceb1ace5        4 weeks ago         402MB
+golang                                                             1-buster            75605a415539        4 weeks ago         839MB
+golang                                                             latest              75605a415539        4 weeks ago         839MB
+python                                                             alpine              44fceb565b2a        4 weeks ago         42.7MB
+golang                                                             1-alpine3.11        5d5cac8457ad        5 weeks ago         370MB
+node                                                               12-alpine           18f4bc975732        6 weeks ago         89.3MB
+node                                                               10-alpine           8e473595b853        7 weeks ago         83.5MB
+php                                                                7.4.3-apache        d753d5b380a1        6 months ago        414MB
+golang                                                             1-alpine3.10        dd50f8b1f673        7 months ago        359MB
+golang                                                             1-alpine3.9         c06cf650f419        13 months ago       351MB
+golang                                                             1-alpine3.7         cb1fe62903ee        19 months ago       309MB
+golang                                                             1-alpine3.8         be1230a1b343        19 months ago       310MB
+golang                                                             1-alpine3.6         a8f345e387a3        2 years ago         269MB
+golang                                                             1-jessie            6ce094895555        3 years ago         699MB
+golang                                                             1-alpine3.5         310e63753884        3 years ago         257MB
+golang                                                             1-cross             9f992d3f6497        5 years ago         2.34GB
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % docker build -t us.gcr.io/rlt-test-289320/rlt-test
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % docker build -t us.gcr.io/rlt-test-289320/rlt-test
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % ls
+Dockerfile	source
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % docker build . -t us.gcr.io/rlt-test-289320/rlt-test
+Sending build context to Docker daemon  11.78kB
+Step 1/2 : FROM php:7.4.3-apache
+ ---> d753d5b380a1
+Step 2/2 : COPY source/ /var/www/html/
+ ---> Using cache
+ ---> abbe5aec790c
+Successfully built abbe5aec790c
+Successfully tagged us.gcr.io/rlt-test-289320/rlt-test:latest
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % docker push us.gcr.io/rlt-test-289320/rlt-test
+The push refers to repository [us.gcr.io/rlt-test-289320/rlt-test]
+cbe7b4c82415: Pushed 
+a616f8ab5356: Pushed 
+079d43545924: Pushed 
+d97484483f49: Pushed 
+b242745ebda2: Pushed 
+d0d3b2f87351: Pushed 
+be73e3c8f219: Pushed 
+0fc284fc9cf5: Pushed 
+732057c800a3: Pushed 
+4cc11613548d: Pushed 
+df6c050501b6: Pushed 
+b4bfb20b5f05: Pushed 
+2e8cc9f5313f: Pushed 
+f2cb0ecef392: Layer already exists 
+latest: digest: sha256:09836a3bb23cdf50e0db678e6ac9b4a77f6bc6cea7c82e79ce1c2a7ee6476e84 size: 3242
+(base) karthik.arunapuram@C02CFACJMD6R rlt-test % 

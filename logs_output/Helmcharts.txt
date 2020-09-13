@@ -1,0 +1,11 @@
+(base) karthik.arunapuram@C02CFACJMD6R rlt_terraform_k8s_test-master-master % helm install rlt-test charts/rlt-test/
+NAME: rlt-test
+LAST DEPLOYED: Sun Sep 13 14:54:49 2020
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+1. Get the application URL by running these commands:
+  http://rlttest.ga/
+(base) karthik.arunapuram@C02CFACJMD6R rlt_terraform_k8s_test-master-master % 
